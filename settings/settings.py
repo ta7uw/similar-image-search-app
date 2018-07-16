@@ -26,6 +26,7 @@ SECRET_KEY = LOCAL_SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'Similar_Image_Search_App.urls'
@@ -125,3 +127,22 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/images")
 MEDIA_URL = "static/images"
+
+# Debug toolbar
+if DEBUG:
+    def show_toolbar(request):
+        return True
+
+
+    INSTALLED_APPS += {
+        "debug_toolbar",
+    }
+
+    MIDDLEWARE += {
+        "django.middleware.DebugToolbarMiddleware",
+    }
+
+    DEBUG_TOOLBAR_CONFIG = {
+        'SHOW_TOOLBAR_CALLBACK': show_toolbar,
+    }
+
