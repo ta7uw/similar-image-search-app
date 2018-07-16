@@ -2,6 +2,7 @@ from django.db import models
 from uuid import uuid4
 import os
 
+
 class Item(models.Model):
     class Meta:
         db_table = "Item"
@@ -21,14 +22,15 @@ class UploadedImage(models.Model):
     image = models.ImageField(verbose_name="uploaded image", upload_to="uploaded")
 
 
-def get_image_path(self, filename):
+def get_image_path(file_type, filename):
     """
-
-    :param self: model.Model
+    To Get new customized file path
+    :param file_type: origin or uploaded
     :param filename: original file name
     :return: customized file name
     """
-    prefix = "image/"
+    prefix = "images/"
+    file_type = file_type + "/"
     name = str(uuid4()).replace("-", "")
     extension = os.path.splitext(filename)[-1]
-    return prefix + name + extension
+    return prefix + file_type + name + extension
