@@ -15,7 +15,7 @@ class Item(models.Model):
     def __str__(self):
         return self.name
 
-    def get_image_path(filename):
+    def get_image_path(self, filename):
         """
         To Get new customized file path
         :param filename: original file name
@@ -35,9 +35,8 @@ class UploadedImage(models.Model):
 
     image = models.ImageField(verbose_name="uploaded image", upload_to="uploaded")
 
-    def delete_previous_file(function):
+    def delete_previous_file(self, function):
         """
-
         :param function: main function
         :return: wrapper
         """
@@ -49,9 +48,7 @@ class UploadedImage(models.Model):
             :param kwargs:
             :return: result of main function
             """
-
             self = args[0]
-
             result = UploadedImage.objects.filter(pk=self.pk)
             previous = result[0] if len(result) else None
             super(UploadedImage, self).save()
@@ -73,7 +70,7 @@ class UploadedImage(models.Model):
     def delete(self, using=None, keep_parents=False):
         super(UploadedImage, self).delete()
 
-    def get_image_path(filename):
+    def get_image_path(self, filename):
         """
         To Get new customized file path
         :param filename: original file name
