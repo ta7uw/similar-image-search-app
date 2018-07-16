@@ -7,8 +7,15 @@ class Item(models.Model):
         db_table = "Item"
 
     name = models.CharField(verbose_name="name", max_length=128, null=False, blank=False)
-    image = models.ImageField(verbose_name="image", upload_to="statics/images")
+    image = models.ImageField(verbose_name="image", upload_to="statics/images/origin")
 
     def __str__(self):
         return self.name
 
+
+class UploadedImage(models.Model):
+
+    class Meta:
+        db_table = "UploadedImage"
+
+    image = models.ImageField(verbose_name="uploaded image", upload_to="statics/images/uploaded")
