@@ -1,6 +1,7 @@
 
 import os
 from .local_settings import LOCAL_SECRET_KEY
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "sisApp",
+
 
 ]
 
@@ -115,7 +117,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/images")
-MEDIA_URL = "static/images"
+MEDIA_URL = "/static/images/"
 
 # Debug toolbar
 if DEBUG:
@@ -123,13 +125,13 @@ if DEBUG:
         return True
 
 
-    INSTALLED_APPS += {
-        "debug_toolbar",
-    }
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]
 
-    MIDDLEWARE += {
-        "django.middleware.DebugToolbarMiddleware",
-    }
+    MIDDLEWARE += [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    ]
 
     DEBUG_TOOLBAR_CONFIG = {
         'SHOW_TOOLBAR_CALLBACK': show_toolbar,
