@@ -43,7 +43,7 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'Similar_Image_Search_App.urls'
+ROOT_URLCONF = 'settings.urls'
 
 TEMPLATES = [
     {

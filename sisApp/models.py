@@ -35,7 +35,7 @@ class UploadedImage(models.Model):
 
     image = models.ImageField(verbose_name="uploaded image", upload_to="uploaded")
 
-    def delete_previous_file(self, function):
+    def delete_previous_file(function):
         """
         :param function: main function
         :return: wrapper
