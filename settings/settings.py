@@ -64,7 +64,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Similar_Image_Search_App.wsgi.application'
+WSGI_APPLICATION = 'settings.wsgi.application'
 
 
 # Database
