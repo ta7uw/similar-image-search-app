@@ -17,7 +17,7 @@ SECRET_KEY = LOCAL_SECRET_KEY
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -46,6 +46,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'settings.urls'
+SECURE_SSL_REDIRECT = True
 
 TEMPLATES = [
     {
