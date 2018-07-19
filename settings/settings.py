@@ -1,4 +1,3 @@
-
 import os
 from .local_settings import LOCAL_SECRET_KEY
 
@@ -51,8 +50,7 @@ SECURE_SSL_REDIRECT = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,8 +120,8 @@ STATIC_ROOT = [os.path.join(BASE_DIR, "static")]
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/images")
 MEDIA_URL = "/static/images/"
 
-# Debug toolbar
 if DEBUG:
+    # Debug toolbar
     def show_toolbar(request):
         return True
 
